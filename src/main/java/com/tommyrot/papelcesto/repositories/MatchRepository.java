@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tommyrot.papelcesto.domain.MatchEntity;
 
-public interface MatchRepositoy extends JpaRepository<MatchEntity, Integer> {
+public interface MatchRepository extends JpaRepository<MatchEntity, Integer> {
 
 }
