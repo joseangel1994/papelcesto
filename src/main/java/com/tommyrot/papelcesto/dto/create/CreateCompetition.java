@@ -1,12 +1,12 @@
 package com.tommyrot.papelcesto.dto.create;
 
-import java.util.List;
+import lombok.Data;
 
-import com.tommyrot.papelcesto.domain.MatchEntity;
-
+@Data
 public class CreateCompetition {
 
 	private String competitionName;
 	private boolean active;
-	private List<MatchEntity> matches;
+	
+	
 }
