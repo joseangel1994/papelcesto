@@ -22,7 +22,7 @@ import lombok.ToString;
 @Data
 @ToString(of = {"id"})
 @EqualsAndHashCode(of = {"id"})
-public class Match {
+public class MatchEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +34,9 @@ public class Match {
 
   @ManyToOne
   @JoinColumn(name = "id")
-  private Competition competition;
+  private CompetitionEntity competition;
 
   @OneToMany(mappedBy = "id")
-  private List<Performance> performance;
+  private List<PerformanceEntity> performance;
 
 }
