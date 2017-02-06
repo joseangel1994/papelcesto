@@ -6,4 +6,6 @@ import com.tommyrot.papelcesto.domain.PlayerEntity;
 
 public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
+  PlayerEntity findPlayerById(long playerId);
+
 }
