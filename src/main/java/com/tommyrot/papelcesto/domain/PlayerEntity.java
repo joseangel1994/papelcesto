@@ -24,7 +24,7 @@ public class PlayerEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "player_id")
+  @Column(name = "id")
   private Integer playerId;
 
   @Column(name = "nombre")
