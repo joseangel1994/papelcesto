@@ -46,6 +46,7 @@ public class CrudPlayerUsercase {
 
     PlayerEntity playerToUpdate = playerRepository.findOne(playerId);
     playerMapper.updatePlayerEntity(updatePlayer, playerToUpdate);
+    playerRepository.save(playerToUpdate);
 
     return playerMapper.toPlayer(playerToUpdate);
   }
