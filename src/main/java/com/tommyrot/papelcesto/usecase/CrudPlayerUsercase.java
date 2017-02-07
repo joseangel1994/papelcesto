@@ -28,7 +28,7 @@ public class CrudPlayerUsercase {
   }
 
 
-  public Player findById(long playerId) {
+  public Player findById(Integer playerId) {
     PlayerEntity playerToCreate = playerRepository.findPlayerById(playerId);
     Player playerToReturn = playerMapper.toPlayer(playerToCreate);
     return playerToReturn;
@@ -69,7 +69,7 @@ public class CrudPlayerUsercase {
     return listToReturn;
   }
 
-  public void delete(Long playerId) {
+  public void delete(Integer playerId) {
     playerRepository.delete(playerId);
   }
 }

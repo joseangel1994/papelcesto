@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class UpdatePlayer {
 
-  private Long playerId;
+  private Integer playerId;
   private String name;
   private String performanceId;
 

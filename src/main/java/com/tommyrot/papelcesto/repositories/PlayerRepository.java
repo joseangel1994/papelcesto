@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tommyrot.papelcesto.domain.PlayerEntity;
 
-public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
+public interface PlayerRepository extends JpaRepository<PlayerEntity, Integer> {
 
-  PlayerEntity findPlayerById(long playerId);
+  PlayerEntity findPlayerById(Integer playerId);
 
   List<PlayerEntity> findByNameContains(String filter);
 
