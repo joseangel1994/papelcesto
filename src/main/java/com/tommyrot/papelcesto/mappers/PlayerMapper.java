@@ -10,14 +10,14 @@ import com.tommyrot.papelcesto.dto.update.UpdatePlayer;
 @Component
 public class PlayerMapper {
 
-  public PlayerEntity toRunnerEntity(CreatePlayer createPlayer) {
+  public PlayerEntity toPlayerEntity(CreatePlayer createPlayer) {
     PlayerEntity playerToCreate = new PlayerEntity();
     playerToCreate.setName(createPlayer.getName());
     playerToCreate.setPerformanceId(createPlayer.getPerformanceId());
     return playerToCreate;
   }
 
-  public PlayerEntity updateRunnerEntity(UpdatePlayer updatePlayer, PlayerEntity playerToCreate) {
+  public PlayerEntity updatePlayerEntity(UpdatePlayer updatePlayer, PlayerEntity playerToCreate) {
     playerToCreate.setPlayerId(updatePlayer.getPlayerId());
     playerToCreate.setName(updatePlayer.getName());
     playerToCreate.setPerformanceId(updatePlayer.getPerformanceId());
