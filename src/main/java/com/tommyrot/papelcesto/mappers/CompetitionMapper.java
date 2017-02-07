@@ -36,7 +36,6 @@ public class CompetitionMapper {
 		
 		entityToUpdate.setActive(competitionToUpdate.isActive());
 		entityToUpdate.setCompetitionName(competitionToUpdate.getCompetitionName());
-		entityToUpdate.setId(competitionToUpdate.getId());
 		//result.setMatches(matches);
 		
 		return entityToUpdate;

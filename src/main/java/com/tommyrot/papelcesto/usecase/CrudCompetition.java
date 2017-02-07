@@ -55,11 +55,15 @@ public class CrudCompetition {
 		return competitionMapper.toCompetition(competitionToCreate);
 	}
 	
-	public Competition updateCompetition(UpdateCompetition updateCompetition){
+	public Competition updateCompetition(Integer id, UpdateCompetition updateCompetition){
 		
-		CompetitionEntity entityToUpdate = competitionrepository.findOne(updateCompetition.getId());
+		CompetitionEntity entityToUpdate = competitionrepository.findOne(id);
 		CompetitionEntity updatedEntity = competitionMapper.updateCompetitionEntity(updateCompetition, entityToUpdate);
+		
+		competitionrepository.save(updatedEntity);
+		
 		return competitionMapper.toCompetition(updatedEntity);
+		
 	}
 	
 	public void deleteCompetition(Integer id){

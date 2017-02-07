@@ -44,9 +44,9 @@ public class CompetitionController {
 		return new ResponseEntity<Competition>(competitionCrud.createNewCompetition(competitionToCreate),HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT)
-	public Competition updateCompetition(@RequestBody UpdateCompetition competitionToUpdate){
-		return competitionCrud.updateCompetition(competitionToUpdate);
+	@RequestMapping(value = "{id:\\d+}",method = RequestMethod.PUT)
+	public Competition updateCompetition(@PathVariable("id") Integer id, @RequestBody UpdateCompetition competitionToUpdate){
+		return competitionCrud.updateCompetition(id,competitionToUpdate);
 		
 	}
 	@RequestMapping(value = "{id:\\d+}", method = RequestMethod.DELETE)
