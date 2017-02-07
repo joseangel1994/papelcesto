@@ -6,5 +6,5 @@ import lombok.Data;
 public class CreatePlayer {
 
   private String name;
-  private String performanceId;
+  private Integer performanceId;
 }

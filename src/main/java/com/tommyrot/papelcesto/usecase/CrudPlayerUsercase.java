@@ -29,7 +29,7 @@ public class CrudPlayerUsercase {
 
 
   public Player findById(Integer playerId) {
-    PlayerEntity playerToCreate = playerRepository.findPlayerById(playerId);
+    PlayerEntity playerToCreate = playerRepository.findOne(playerId);
     Player playerToReturn = playerMapper.toPlayer(playerToCreate);
     return playerToReturn;
   }

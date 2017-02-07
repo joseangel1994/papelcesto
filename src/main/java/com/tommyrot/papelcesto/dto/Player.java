@@ -7,5 +7,5 @@ public class Player {
 
   private Integer playerId;
   private String name;
-  private String performanceId;
+  private Integer performanceId;
 }

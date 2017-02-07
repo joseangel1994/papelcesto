@@ -7,6 +7,6 @@ public class UpdatePlayer {
 
   private Integer playerId;
   private String name;
-  private String performanceId;
+  private Integer performanceId;
 
 }

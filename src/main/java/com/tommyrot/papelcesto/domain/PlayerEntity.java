@@ -12,14 +12,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Entity
 @Table(name = "player")
 @Data
-@ToString(of = {"id"})
-@EqualsAndHashCode(of = {"id"})
 public class PlayerEntity {
 
   @Id
@@ -27,13 +23,10 @@ public class PlayerEntity {
   @Column(name = "id")
   private Integer playerId;
 
-  @Column(name = "nombre")
+  @Column(name = "name")
   private String name;
 
-  @Column(name = "performance_id")
-  private String performanceId;
-
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "playerId")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
   private List<PerformanceEntity> performances;
 
 }

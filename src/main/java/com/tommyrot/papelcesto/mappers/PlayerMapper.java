@@ -13,14 +13,12 @@ public class PlayerMapper {
   public PlayerEntity toPlayerEntity(CreatePlayer createPlayer) {
     PlayerEntity playerToCreate = new PlayerEntity();
     playerToCreate.setName(createPlayer.getName());
-    playerToCreate.setPerformanceId(createPlayer.getPerformanceId());
     return playerToCreate;
   }
 
   public PlayerEntity updatePlayerEntity(UpdatePlayer updatePlayer, PlayerEntity playerToCreate) {
     playerToCreate.setPlayerId(updatePlayer.getPlayerId());
     playerToCreate.setName(updatePlayer.getName());
-    playerToCreate.setPerformanceId(updatePlayer.getPerformanceId());
     return playerToCreate;
   }
 
@@ -28,7 +26,6 @@ public class PlayerMapper {
     Player target = new Player();
     target.setPlayerId(playerToReturn.getPlayerId());
     target.setName(playerToReturn.getName());
-    target.setPerformanceId(playerToReturn.getPerformanceId());
     return target;
   }
 }

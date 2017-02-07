@@ -8,8 +8,6 @@ import com.tommyrot.papelcesto.domain.PlayerEntity;
 
 public interface PlayerRepository extends JpaRepository<PlayerEntity, Integer> {
 
-  PlayerEntity findPlayerById(Integer playerId);
-
   List<PlayerEntity> findByNameContains(String filter);
 
 }
