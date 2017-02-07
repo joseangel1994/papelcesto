@@ -42,9 +42,9 @@ public class CrudPlayerUsercase {
     return playerMapper.toPlayer(playerToCreate);
   }
 
-  public Player updatePlayer(UpdatePlayer updatePlayer) {
+  public Player updatePlayer(UpdatePlayer updatePlayer, Integer playerId) {
 
-    PlayerEntity playerToUpdate = playerRepository.findOne(updatePlayer.getPlayerId());
+    PlayerEntity playerToUpdate = playerRepository.findOne(playerId);
     playerMapper.updatePlayerEntity(updatePlayer, playerToUpdate);
 
     return playerMapper.toPlayer(playerToUpdate);

@@ -48,9 +48,10 @@ public class PlayerController {
     return crudPlayerUsercase.createNewPlayer(createPlayer);
   }
 
-  @RequestMapping(method = RequestMethod.PUT)
-  public Player editPlayer(@RequestBody UpdatePlayer updatePlayer) {
-    return crudPlayerUsercase.updatePlayer(updatePlayer);
+  @RequestMapping(value = "{id:\\d+}", method = RequestMethod.PUT)
+  public Player editPlayer(@PathVariable("id") Integer playerId,
+      @RequestBody UpdatePlayer updatePlayer) {
+    return crudPlayerUsercase.updatePlayer(updatePlayer, playerId);
   }
 
   @RequestMapping(value = "{id:\\d+}", method = RequestMethod.DELETE)

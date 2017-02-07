@@ -17,7 +17,6 @@ public class PlayerMapper {
   }
 
   public PlayerEntity updatePlayerEntity(UpdatePlayer updatePlayer, PlayerEntity playerToCreate) {
-    playerToCreate.setPlayerId(updatePlayer.getPlayerId());
     playerToCreate.setName(updatePlayer.getName());
     return playerToCreate;
   }
