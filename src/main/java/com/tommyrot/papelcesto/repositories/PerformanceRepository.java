@@ -7,7 +7,7 @@ import com.tommyrot.papelcesto.domain.PlayerEntity;
 import java.util.List;
 
 public interface PerformanceRepository extends JpaRepository<PerformanceEntity, Integer> {
-	
-	List<PerformanceEntity> findByPlayer(PlayerEntity player);
+
+  List<PerformanceEntity> findByPlayer(PlayerEntity player);
 
 }

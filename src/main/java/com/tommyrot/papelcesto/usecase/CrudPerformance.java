@@ -17,60 +17,60 @@ import com.tommyrot.papelcesto.repositories.PlayerRepository;
 
 @Service
 public class CrudPerformance {
-	
-	private PerformanceRepository repository;
-	private PlayerRepository playerRepository;
-	
-	private PerformanceEntityToPerformanceMapper performanceEntityToPerformanceMapper;
-	private PerformanceToPerformanceEntityMapper performanceToPerformanceEntityMapper;
-	private CreatePerformanceToPerformanceMapper createPerformanceToPerformanceMapper;
-	
-	@Autowired
-	public CrudPerformance(PerformanceRepository repository, PlayerRepository playerRepository,
-			PerformanceEntityToPerformanceMapper performanceEntityToPerformanceMapper,
-			PerformanceToPerformanceEntityMapper performanceToPerformanceEntityMapper,
-			CreatePerformanceToPerformanceMapper createPerformanceToPerformanceMapper) {
-		super();
-		this.repository = repository;
-		this.playerRepository = playerRepository;
-		this.performanceEntityToPerformanceMapper = performanceEntityToPerformanceMapper;
-		this.performanceToPerformanceEntityMapper = performanceToPerformanceEntityMapper;
-		this.createPerformanceToPerformanceMapper = createPerformanceToPerformanceMapper;
-	}	
 
-	public List<Performance> getPerformancesByPlayer(Integer playerId){
-		return repository.findByPlayer(playerRepository.findOne(playerId))//
-				.stream()//
-				.map(performanceEntity -> performanceEntityToPerformanceMapper.map(performanceEntity))//
-				.collect(Collectors.toList());
-	}
+  private PerformanceRepository repository;
+  private PlayerRepository playerRepository;
 
-	public List<Performance> getPerformances(){
-		return repository.findAll()//
-				.stream()//
-				.map(performanceEntity -> performanceEntityToPerformanceMapper.map(performanceEntity))//
-				.collect(Collectors.toList());
-	}
-	
-	public Performance createPerformance(CreatePerformance performanceToCreate){
-		PerformanceEntity newPerformanceEntity = new PerformanceEntity();
-	   
-		repository.save(newPerformanceEntity);
+  private PerformanceEntityToPerformanceMapper performanceEntityToPerformanceMapper;
+  private PerformanceToPerformanceEntityMapper performanceToPerformanceEntityMapper;
+  private CreatePerformanceToPerformanceMapper createPerformanceToPerformanceMapper;
 
-	    return createPerformanceToPerformanceMapper.map(performanceToCreate);
-	}
-	
-	public Performance updatePerformance(Integer id, Performance performanceToUpdate){
-		PerformanceEntity newPerformanceEntity = repository.findOne(id);
-	    newPerformanceEntity.setScore(performanceToUpdate.getScore());
+  @Autowired
+  public CrudPerformance(PerformanceRepository repository, PlayerRepository playerRepository,
+      PerformanceEntityToPerformanceMapper performanceEntityToPerformanceMapper,
+      PerformanceToPerformanceEntityMapper performanceToPerformanceEntityMapper,
+      CreatePerformanceToPerformanceMapper createPerformanceToPerformanceMapper) {
+    super();
+    this.repository = repository;
+    this.playerRepository = playerRepository;
+    this.performanceEntityToPerformanceMapper = performanceEntityToPerformanceMapper;
+    this.performanceToPerformanceEntityMapper = performanceToPerformanceEntityMapper;
+    this.createPerformanceToPerformanceMapper = createPerformanceToPerformanceMapper;
+  }
 
-	    repository.save(newPerformanceEntity);
+  public List<Performance> getPerformancesByPlayer(Integer playerId) {
+    return repository.findByPlayer(playerRepository.findOne(playerId))//
+        .stream()//
+        .map(performanceEntity -> performanceEntityToPerformanceMapper.map(performanceEntity))//
+        .collect(Collectors.toList());
+  }
 
-	    return performanceToUpdate;
-	}
-	
-	public void deletePerformance(Integer id){
-		repository.delete(id);
-	}
+  public List<Performance> getPerformances() {
+    return repository.findAll()//
+        .stream()//
+        .map(performanceEntity -> performanceEntityToPerformanceMapper.map(performanceEntity))//
+        .collect(Collectors.toList());
+  }
+
+  public Performance createPerformance(CreatePerformance performanceToCreate) {
+    PerformanceEntity newPerformanceEntity = new PerformanceEntity();
+
+    repository.save(newPerformanceEntity);
+
+    return createPerformanceToPerformanceMapper.map(performanceToCreate);
+  }
+
+  public Performance updatePerformance(Integer id, Performance performanceToUpdate) {
+    PerformanceEntity newPerformanceEntity = repository.findOne(id);
+    newPerformanceEntity.setScore(performanceToUpdate.getScore());
+
+    repository.save(newPerformanceEntity);
+
+    return performanceToUpdate;
+  }
+
+  public void deletePerformance(Integer id) {
+    repository.delete(id);
+  }
 
 }

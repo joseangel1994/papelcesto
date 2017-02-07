@@ -17,37 +17,38 @@ import com.tommyrot.papelcesto.usecase.CrudPerformance;
 @RequestMapping(value = "/player/{id}/performances")
 public class PerformanceController {
 
-	private final CrudPerformance crudPerformance;
+  private final CrudPerformance crudPerformance;
 
-	@Autowired
-	public PerformanceController(CrudPerformance crudPerformance) {
-		super();
-		this.crudPerformance = crudPerformance;
-	}
+  @Autowired
+  public PerformanceController(CrudPerformance crudPerformance) {
+    super();
+    this.crudPerformance = crudPerformance;
+  }
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Performance>> getPerformancesByPlayerId(@PathVariable("playerId") Integer playerId) {
-		List<Performance> performances = crudPerformance.getPerformancesByPlayer(playerId);
+  @RequestMapping(method = RequestMethod.GET)
+  public ResponseEntity<List<Performance>> getPerformancesByPlayerId(
+      @PathVariable("id") Integer playerId) {
+    List<Performance> performances = crudPerformance.getPerformancesByPlayer(playerId);
 
-		if (performances.isEmpty()) {
-			return new ResponseEntity<List<Performance>>(performances, HttpStatus.CONFLICT);
-		} else {
-			return new ResponseEntity<List<Performance>>(performances, HttpStatus.OK);
-		}
-	}
+    if (performances.isEmpty()) {
+      return new ResponseEntity<List<Performance>>(performances, HttpStatus.CONFLICT);
+    } else {
+      return new ResponseEntity<List<Performance>>(performances, HttpStatus.OK);
+    }
+  }
 
-	// public Performance createPerformance(CreatePerformance
-	// performanceToCreate){
-	// return crudPerformance.createPerformance(performanceToCreate);
-	// }
-	//
-	// public Performance updatePerformance(Integer id, Performance
-	// performanceToUpdate){
-	// return crudPerformance.updatePerformance(id, performanceToUpdate);
-	// }
-	//
-	// public void deletePerformance(Integer id){
-	// crudPerformance.deletePerformance(id);
-	// }
+  // public Performance createPerformance(CreatePerformance
+  // performanceToCreate){
+  // return crudPerformance.createPerformance(performanceToCreate);
+  // }
+  //
+  // public Performance updatePerformance(Integer id, Performance
+  // performanceToUpdate){
+  // return crudPerformance.updatePerformance(id, performanceToUpdate);
+  // }
+  //
+  // public void deletePerformance(Integer id){
+  // crudPerformance.deletePerformance(id);
+  // }
 
 }

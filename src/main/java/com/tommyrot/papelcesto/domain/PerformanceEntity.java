@@ -16,22 +16,22 @@ import lombok.Data;
 @Table(name = "performances")
 @Data
 public class PerformanceEntity {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    
-    @Column(name = "score")
-    private Integer score;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(columnDefinition = "id")
-    private PlayerEntity player;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(columnDefinition = "id")
-    private MatchEntity match;
-    
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Integer id;
+
+  @Column(name = "score")
+  private Integer score;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(columnDefinition = "id")
+  private PlayerEntity player;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(columnDefinition = "id")
+  private MatchEntity match;
+
 
 }
