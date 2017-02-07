@@ -57,7 +57,9 @@ public class CrudMatchUseCase {
   public Match updateMatch(Integer id, UpdateMatch updateMatch) {
 
     MatchEntity matchToUpdate = matchRepository.findOne(id);
-    mapper.updateMatchEntity(matchToUpdate, updateMatch);
+
+    matchToUpdate.setDate(updateMatch.getDate());
+    matchRepository.save(matchToUpdate);
 
     return mapper.toMatch(matchToUpdate);
   }

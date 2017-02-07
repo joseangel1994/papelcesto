@@ -9,5 +9,4 @@ public class CreateMatch {
 
   private Instant date;
 
-
 }
