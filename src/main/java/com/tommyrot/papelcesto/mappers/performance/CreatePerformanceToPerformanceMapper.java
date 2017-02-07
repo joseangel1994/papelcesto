@@ -7,16 +7,16 @@ import com.tommyrot.papelcesto.dto.create.CreatePerformance;
 
 @Component
 public class CreatePerformanceToPerformanceMapper {
-	
-	public Performance map(CreatePerformance source){
-		
-		Performance result = new Performance();
-		
-		result.setId(source.getId());
-		result.setScore(source.getScore());
 
-		return result;
-		
-	}
+  public Performance map(CreatePerformance source) {
+
+    Performance result = new Performance();
+
+    result.setId(source.getId());
+    result.setScore(source.getScore());
+
+    return result;
+
+  }
 
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Performance {
 
-    private Integer id;
-    private Integer score;
-        
+  private Integer id;
+  private Integer score;
+
 }
